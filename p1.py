@@ -1,7 +1,5 @@
-
 import speech_recognition
 import pyttsx
-
 
 speech_engine = pyttsx.init('sapi5') # see http://pyttsx.readthedocs.org/en/latest/engine.html#pyttsx.init
 rate = speech_engine.getProperty('rate')
@@ -10,7 +8,6 @@ speech_engine.setProperty('rate', rate - 2000)
 def speak(text):
 	speech_engine.say(text)
 	speech_engine.runAndWait()
-
 
 recognizer = speech_recognition.Recognizer()
 
@@ -28,15 +25,20 @@ def listen():
 
 	return "Other Error"
 
+
 if __name__ == "__main__":
 	
-	
+	print("What can I call you?")
+	speak("What can I call you?")
+	name = listen()
+	print("Hi " + name)
+	speak(name)
+
 	print("What are you looking for?")
 	speak("What are you looking for?")
-	
 	obj = listen()
 	print(obj)
+
 	print("Great! Click a picture so that I can find it for you!")
 	speak("Great! Click a picture so that I can find it for you!")
-	
-	
+
